@@ -128,6 +128,7 @@ public class Hangman {
         System.out.print("\n");
     }
     //step 6: make a fun that veryfy if letter is there in the word and if it is there it replaces word with _
+    // usedindx is useful to prevent the same letter verifying glitch, if a word contain two or more same letters
     public static int Check(char letter, char[] Arr,int[] usedindx){
         for(int i=0;i<Arr.length;i++){
             if(Arr[i] == letter && Checkindx(i, usedindx)==-1){
@@ -136,7 +137,7 @@ public class Hangman {
         }
         return -1;
     }
-
+    //same as Check function but instead of char array we use int array
     public static int Checkindx(int index, int[] usedindx){
         for(int i=0;i<usedindx.length;i++){
             if(usedindx[i] == index){
@@ -151,7 +152,7 @@ public class Hangman {
         newArray[word.length] = letter;
         return newArray;
     }
-
+    // This is same as append funtion but for integer arrys
     public static int[] appendindx(int index, int[] Arr){
         int[] newArray = Arrays.copyOf(Arr, Arr.length+1);
         newArray[Arr.length] = index;
